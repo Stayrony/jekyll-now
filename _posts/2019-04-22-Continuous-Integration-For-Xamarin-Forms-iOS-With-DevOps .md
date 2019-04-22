@@ -18,29 +18,29 @@ Imagine that our project will be name Entree.
 
 Go to project details and you will see all available info:
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/2.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/2.png "Info")
 
 Go to Pipelines → Builds
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/3.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/3.png "Builds")
 
 And create the new build pipeline. If the project has not previously configured builds, then your image may differ from this one:
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/4.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/4.png "New build pipeline")
 
 Select a source code for builds. Authorize Bitbucket connection if needed:
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/5.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/5.png "Source code for builds")
 
 Select the repository and build branch:
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/6.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/6.png "Select the repository")
 
 ## Creating the Build Definition
 
 To set up our Xamarin iOS build we use the available template in VSTS because it contains all the necessary build steps to create an IPA file which is Apple's equivalent of the APK file in Android. Time to use that template and create our build definition!
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/7.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/7.png "Choose template")
 
 The tasks displayed below will be the ones you'll end up with and once again some of them are greyed out (disabled). Leave them in or remove them by right clicking and selecting **Remove Selected Task(s)**.
 
@@ -54,7 +54,7 @@ For RELEASE - **R**_Entree-Xamarin.iOS-CI
 
 Select **Hosted macOS** for iOS build.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/8.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/8.png "Pipeline")
 
 ### Signing & Provisioning
 
@@ -62,9 +62,9 @@ Enable Install an Apple certificate and Install an Apple provisioning profile st
 
 This is where you put your P12 signing key, the password of your signing key and a provisioning profile containing e.g. your test devices. Don't know where to get these? After selecting your key and profile you can put in a variable for the password. Since we don't want to have that in our build definition in plain text we put in $(P12Password) and set this at a later point.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/9.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/9.png "Apple certificate and an Apple provisioning profile")
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/10.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/10.png "Apple certificate and an Apple provisioning profile")
 
 All other steps, including restoring NuGet packages and use it, building the iOS project, and packaging the app can remain.
 
@@ -72,17 +72,17 @@ All other steps, including restoring NuGet packages and use it, building the iOS
 
 Uncheck _Build for iOS Simulator._
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/11.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/11.png "Uncheck Build for iOS Simulator")
 
 ### Next step distribute app builds to testers and users via App Center.
 
 Enable this task.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/12.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/12.png "App Center")
 
 Configure App Center service connection. You need API token for connection, ask your admin for it.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/13.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/13.png "Configure App Center")
 
 ### After that, you need app slug.
 
@@ -96,7 +96,7 @@ Fill in release notes. For all app we define notes like below:
 `**Branch** - $(Build.SourceBranch)&#xA0;`<br>
 `**Commit** - $(Build.SourceVersionMessage`
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/14.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/14.png "Release notes ")
 
 **Save your work.**
 
@@ -108,39 +108,39 @@ You can download this file here - [Slack Notification.json](https://headworks.at
 
 Or export from existing builds.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/15.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/15.png "Export from existing builds task")
 
 After importing JSON file you should see something like this:
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/16.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/16.png "Task groups")
 
 Save this groups task.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/17.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/17.png "Slack Task groups")
 
 Go back to our build and click to Add a task to Agent:
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/18.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/18.png "Add a task to Agent")
 
 In the Build tab, you should find previously created SlackNotification task. Select and Add this to job:
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/19.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/19.png "Add SlackNotification task")
 
 Click on one and you should see below settings, in the next step we define variables (Slack.ApiToken and Slack.Channel):
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/20.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/20.png "Define variables")
 
 ## Specifying variables and triggers
 
-In the previous step, we created some variables containing passwords related to our keystore. These variables need to be declared somewhere so let�s switch to the **Variables** tab and add them. You can use the lock icon to make sure that people with build definition editing permissions can�t simply read these values. Make sure you still have these passwords saved elsewhere because you won�t be able to read them either after clicking the lock icon. Create all the necessary variables for the build. And save.
+In the previous step, we created some variables containing passwords related to our keystore. These variables need to be declared somewhere so let's switch to the **Variables** tab and add them. You can use the lock icon to make sure that people with build definition editing permissions can't simply read these values. Make sure you still have these passwords saved elsewhere because you won't be able to read them either after clicking the lock icon. Create all the necessary variables for the build. And save.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/21.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/21.png "Specifying variables and triggers")
 
-### Enables triggers.
+### Enables triggers
 
 Now we get to the part where we need to set a trigger for our build. Do we want to queue a build manually every time? Of course not! We want to setup continuous integration so let�s start by enabled that in the Triggers tab of the build definition. We can then define one or more Branch Filters. These filters define which branch to monitor for changes and tell VSTS to trigger a build as soon as a commit/push to these remote branches happens. An alternative to these Branch Filters are Path Filters which let you specify one or more specific paths in your project hierarchy to monitor. Both of these functions can be used in conjunction with one another.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/22.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/22.png "Enables triggers")
 
 ### Set up options:
 
@@ -150,16 +150,16 @@ Change build number format to
 
 and save your work.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/23.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/23.png "Change build number format")
 
 And that's it! We created a Xamarin iOS continuous integration pipeline! All that is left it to either manually queue a build to check if it works or to commit to the branch you configured. If all goes well you should see a load of green checkmarks.
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/24.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/24.png "Green checkmarks")
 
 Check artifacts:
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/25.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/25.png "Check artifacts")
 
 And Slack notifications:
 
-![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/26.png "")
+![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/26.png "Check Slack notifications")
