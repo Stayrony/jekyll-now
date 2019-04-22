@@ -5,6 +5,8 @@ tags: [Xamarin.Forms, CI, CI/DI, DevOps, build, vsts]
 comments: true
 ---
 
+This post talks about building and deploying Xamarin.Form iOS apps using Azure DevOps Services, Microsoft Azure.
+
 ## Creating a DevOps Team Project
 
 Sign in for a DevOps account and create a new Team Project for your Xamarin projects. If you do not have access to creating a new project ask your admin to create one.
