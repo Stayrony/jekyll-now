@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Create iCal ics Files in C# ASP.NET Core
+title: Creating iCal ics Files in C# ASP.NET Core
 tags: [iCal, c#, .net, calendar, iCal.NET, iCalendar]
 comments: true
 ---
 
-Creating an iCal (ics file) is really simple. In this post I will show you how to create one using [iCal.NET](https://github.com/rianjs/ical.net) library.
+In this post I will show you how to create iCal files using [iCal.NET](https://github.com/rianjs/ical.net) library.
 
 iCal.NET is an iCalendar (RFC 5545) class library for .NET aimed at providing RFC 5545 compliance, while providing full compatibility with popular calendaring applications and libraries.
 
@@ -49,9 +49,13 @@ Install iCal.NET via [NuGet iCal.NET](https://www.nuget.org/packages/Ical.Net) i
 In the code below I create an email message and attach the iCal to one.
 
 Everything else in the code below is pretty self-explanatory.
+
 For event detail create `CalendarNotificationModel` class with all necessary info.
+
 Then in `CreateCalendarEventAsync` method create `CalendarEvent` model with orginizer info (ORGANIZER;CN=Your app name:mailto:email@company.com).
+
 Put it into a memory stream and finally attach it to the email message. 
+
 Sending email in .NET Core with [FluentEmail](https://www.nuget.org/packages/FluentEmail.Core/) and [SendGrid](https://sendgrid.com/). For this one add `EmailProviderService`.
 
 <script src="https://gist.github.com/Stayrony/1f885bddd7da88f414f6205a138516a6.js"></script>
@@ -60,13 +64,16 @@ Sending email in .NET Core with [FluentEmail](https://www.nuget.org/packages/Flu
 
 The following screenshots show results:
 
-The Gmail experience:
+*The Gmail experience:*
+
 ![screenshot](/images/iCal/Gmail.jpg "The Gmail experience")
 
-The Outlook experience:
+*The Outlook experience:*
+
 ![screenshot](/images/iCal/Outlook.jpg "The Outlook experience")
 
-The Mail Mac OS experience:
+*The Mail Mac OS experience:*
+
 ![screenshot](/images/iCal/MailMacOS.jpg "The Mail Mac OS experience")
 
 # References
