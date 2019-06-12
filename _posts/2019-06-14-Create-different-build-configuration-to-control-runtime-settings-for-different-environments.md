@@ -45,7 +45,7 @@ Map config according to video.
 
 If we build Tritan.Android we don't need to build Tritan.iOS project. And vice versa, for Tritan.iOS we don't need to build Tritan.Android project.
 
-[linkname](https://youtu.be/BIwGQ7HZB7Y "Map config")
+[linkname](https://youtu.be/BIwGQ7HZB7Y)
 
 # Edit config for Tritan.Android
 
