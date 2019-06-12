@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Create different build configuration to control runtime settings for different environments
-tags: [Architecture, Xamarin, NET, BUILD, CONDITIONAL COMPILATION, CONDITIONAL METHODS]
+tags: [Architecture, Xamarin, NET, build, conditional compilation, conditional methods]
 comments: true
 ---
 
@@ -105,7 +105,7 @@ After that, we need to do the same for Tritan.iOS and Tritan.Android projects.
 
 Android dev:
 
-![screenshot](/images/BuildConfigurations/16.jpg "Define conditional compilation symbols for Tritan.Android project")
+![screenshot](/images/BuildConfigurations/16.jpg "Android dev")
 
 iOS dev (for iPhone and iPhomeSimulator platforms):
 
