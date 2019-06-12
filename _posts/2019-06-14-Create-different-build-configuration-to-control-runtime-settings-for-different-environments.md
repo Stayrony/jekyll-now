@@ -45,7 +45,7 @@ Map config according to video.
 
 If we build Tritan.Android we don't need to build Tritan.iOS project. And vice versa, for Tritan.iOS we don't need to build Tritan.Android project.
 
-[linkname](https://youtu.be/BIwGQ7HZB7Y)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BIwGQ7HZB7Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Edit config for Tritan.Android
 
