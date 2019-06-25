@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Continuous Integration for iOS with DevOps
+title: Continuous Integration for Xamarin.Forms iOS with DevOps
 tags: [Xamarin.Forms, CI, CI/DI, DevOps, build, vsts]
 comments: true
 ---
