@@ -5,7 +5,7 @@ tags: [Xamarin.Forms, CI, CI/DI, DevOps, build, vsts]
 comments: true
 ---
 
-This post talks about building and deploying Xamarin.Form iOS apps using Azure DevOps Services, Microsoft Azure.
+This post talks about building and deploying Xamarin.Forms iOS apps using Azure DevOps Services, Microsoft Azure.
 
 ## Creating a DevOps Team Project
 
@@ -138,7 +138,7 @@ In the previous step, we created some variables containing passwords related to 
 
 ### Enables triggers
 
-Now we get to the part where we need to set a trigger for our build. Do we want to queue a build manually every time? Of course not! We want to setup continuous integration so let�s start by enabled that in the Triggers tab of the build definition. We can then define one or more Branch Filters. These filters define which branch to monitor for changes and tell VSTS to trigger a build as soon as a commit/push to these remote branches happens. An alternative to these Branch Filters are Path Filters which let you specify one or more specific paths in your project hierarchy to monitor. Both of these functions can be used in conjunction with one another.
+Now we get to the part where we need to set a trigger for our build. Do we want to queue a build manually every time? Of course not! We want to setup continuous integration so let's start by enabled that in the Triggers tab of the build definition. We can then define one or more Branch Filters. These filters define which branch to monitor for changes and tell VSTS to trigger a build as soon as a commit/push to these remote branches happens. An alternative to these Branch Filters are Path Filters which let you specify one or more specific paths in your project hierarchy to monitor. Both of these functions can be used in conjunction with one another.
 
 ![screenshot](/images/ContinuousIntegrationForXamarinFormsiOSWithDevOps/22.png "Enables triggers")
 
