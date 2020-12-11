@@ -7,7 +7,7 @@ comments: true
 
 In this post I will show you how to create iCal files using [iCal.NET](https://github.com/rianjs/ical.net) library.
 
-[![logo](https://raw.githubusercontent.com/rianjs/ical.net/master/logo.png)]
+![logo](https://raw.githubusercontent.com/rianjs/ical.net/master/logo.png)
 
 iCal.NET is an iCalendar (RFC 5545) class library for .NET aimed at providing RFC 5545 compliance, while providing full compatibility with popular calendaring applications and libraries.
 
